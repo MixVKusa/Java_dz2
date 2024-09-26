@@ -1,9 +1,13 @@
 public class Main {
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 9};
-        int[] arr2 = List.index(arr, 2, 11);
-        for (int i = 0; i < arr2.length; i++) {
-            System.out.println(arr2[i]);
-        }
+        List.num = arr;
+        List.size = 4;
+        List.add(13);
+        List.add(22);
+        List.add(35);
+        List.add(57);
+        List.add(2, 100);
+        List.printList();
     }
 }

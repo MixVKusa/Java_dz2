@@ -1,24 +1,39 @@
 public class List {
-    public static int[] add(int[] array, int x) {
-        int[] newArr = new int[array.length + 1];
-//        System.arraycopy(array, 0, newArr, 0, array.length);
-        for (int i = 0; i < array.length; i++) {
-            newArr[i] = array[i];
-        }
-        newArr[newArr.length-1] = x;
-//        System.out.println(newArr[5]);
-        return newArr;
+    public static int[] num = null;
+    public static int size;
+
+    public static void add(int x) {
+        add(size, x);
     }
 
-    public static int[] index(int[] array, int ind, int x) {
-        int[] newArr = new int[array.length + 1];
-        for (int i = 0, j = 0; i < newArr.length; i++, j++) {
-            if (i == ind){
-                newArr[i] = x;
-                j--;
-            }
-            else newArr[i] = array[j];
+    public static void add(int ind, int x) {
+        int[] newArr;
+        if (size >= num.length){
+            newArr = new int[num.length*2];
         }
-        return newArr;
+        else{
+            newArr = new int[num.length];
+        }
+
+        for (int i = 0; i < ind; i++) {
+            newArr[i] = num[i];
+        }
+        newArr[ind] = x;
+        for (int i = ind; i < size; i++) {
+            newArr[i+1] = num[i];
+        }
+        num = newArr;
+        size++;
+    }
+
+    public static void printList(){
+        System.out.print("{");
+        for (int i = 0; i<size; i++){
+            System.out.print(num[i]);
+            if (i < size - 1){
+                System.out.print(", ");
+            }
+        }
+        System.out.print("}");
     }
 }
