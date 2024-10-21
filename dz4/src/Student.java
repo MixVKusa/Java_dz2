@@ -1,17 +1,41 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Student {
-    public String name;
-    public List<Integer> marks;
+    private String name;
+    private List<Integer> marks;
 
     public Student(String name) {
         this(name, new ArrayList<>());
     }
 
+    public Student (String name, Integer...marks){
+        this(name, new ArrayList<>(Arrays.asList(marks)));
+    }
     public Student(String name, List<Integer> marks) {
         this.name = name;
+        for (int i = 0; i < marks.size(); i++){
+            if (marks.get(i) < 2 || marks.get(i) > 5){
+                throw new IllegalArgumentException("Every mark must be in range from 2 to 5");
+            }
+        }
         this.marks = marks;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Integer> getMarks() {
+        return marks;
+    }
+
+    public void addMark(int score){
+        if (score < 2 || score > 5){
+            throw new IllegalArgumentException("Every mark must be in range from 2 to 5");
+        }
+        marks.add(score);
     }
 
     public float average(){

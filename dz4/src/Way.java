@@ -1,6 +1,14 @@
 public class Way {
-    Town toGo;
-    int cost;
+    private Town toGo;
+    private int cost;
+
+    public Town getToGo() {
+        return toGo;
+    }
+
+    public int getCost() {
+        return cost;
+    }
 
     public Way(Town toGo, int cost) {
         this.toGo = toGo;

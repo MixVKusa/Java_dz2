@@ -1,7 +1,7 @@
 public class Naming {
-    public String firstName;
-    public String secondName;
-    public String surname;
+    private final String firstName;
+    private String secondName;
+    private String surname;
 
     public Naming(String firstName, String secondName, String surname) {
         this.firstName = firstName;
@@ -15,6 +15,26 @@ public class Naming {
 
     public Naming(String firstName) {
         this(firstName, "", "");
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String toString() {

@@ -1,9 +1,12 @@
 public class Fraction {
-    private int num;
-    private int den;
+    private final int num;
+    private final int den;
 
     public Fraction(int num, int den) {
         this.num = num;
+        if (den == 0){
+            throw new IllegalArgumentException("Denomerator can't be 0");
+        }
         this.den = den;
     }
 

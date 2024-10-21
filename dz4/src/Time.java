@@ -1,16 +1,18 @@
 public class Time {
     public final int fullTime;
-    private int hour;
-    private int minute;
-    private int second;
+    private final int hour;
+    private final int minute;
+    private final int second;
 
     public Time(int fullTime) {
+        if (fullTime > 86399) {
+            throw new IllegalArgumentException("Time must be in range of one day");
+        }
         this.fullTime = fullTime;
 
         this.hour = fullTime / 3600;
         this.minute = (fullTime - hour * 3600) / 60;
         this.second = fullTime - hour * 3600 - minute * 60;
-        this.hour %= 24;
     }
 
     public int getHour() {

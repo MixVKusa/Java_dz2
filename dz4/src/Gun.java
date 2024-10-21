@@ -1,12 +1,46 @@
 public class Gun {
     private int bullets;
+    private int maxBullets;
 
-    public Gun(int bullets) {
-        this.bullets = bullets;
+    public Gun(int maxBullets) {
+        this.maxBullets = maxBullets;
     }
 
     public Gun() {
         this(5);
+    }
+
+    public int getMaxBullets() {
+        return maxBullets;
+    }
+
+    public int getBullets() {
+        return bullets;
+    }
+
+    public int reload(int ammo){
+        if (ammo < 0){
+            throw new IllegalArgumentException("Ammo can't be less than 0");
+        }
+        if (ammo + bullets > maxBullets){
+            bullets = maxBullets;
+            return maxBullets - ammo - bullets;
+        }
+        else {
+            bullets += ammo;
+            return 0;
+        }
+    }
+
+    public int unload(){
+        int curBullets;
+        curBullets = bullets;
+        bullets = 0;
+        return curBullets;
+    }
+
+    public boolean isLoad(){
+        return bullets > 0;
     }
 
     public void shot(){

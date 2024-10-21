@@ -1,7 +1,7 @@
 public class Human {
-    public Naming name;
-    public int height;
-    public Human father;
+    private Naming name;
+    private int height;
+    private final Human father;
 
     public Human(Naming name, int height) {
         this(name, height, null);
@@ -20,13 +20,32 @@ public class Human {
         this.height = height;
         this.father = father;
 
-        if (name.secondName.isEmpty() && father != null && !father.name.secondName.isEmpty()){
-            name.secondName = father.name.secondName;
+        if (name.getSecondName().isEmpty() && father != null && !father.name.getSecondName().isEmpty()){
+            name.setSecondName(father.name.getSecondName());
         }
 
-        if (name.surname.isEmpty() && father != null){
-            name.surname = father.name.firstName + "ович";
+        if (name.getSurname().isEmpty() && father != null){
+            name.setSurname(father.name.getFirstName() + "ович");
         }
+    }
+
+    public Naming getName() {
+        return name;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Human getFather() {
+        return father;
+    }
+
+    public void setHeight(int height) {
+        if (height <= 0 || height > 500){
+            throw new IllegalArgumentException("Height must be in range from 1 to 500");
+        }
+        this.height = height;
     }
 
     public String toString() {

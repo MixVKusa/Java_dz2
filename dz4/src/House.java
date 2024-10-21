@@ -1,7 +1,10 @@
 public class House {
-    public final int stages;
+    private final int stages;
 
     public House(int stages) {
+        if (stages <= 0) {
+            throw new IllegalArgumentException("Number of levels must be more than 0");
+        }
         this.stages = stages;
     }
 

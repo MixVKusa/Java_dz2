@@ -3,8 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Square {
-    public Point start;
-    public int length;
+    private Point start;
+    private int length;
 
     public Square(Point start, int length) {
         this(start.x, start.y, length);
@@ -12,6 +12,25 @@ public class Square {
 
     public Square(int x, int y, int length) {
         this.start = new Point(x, y);
+        setLength(length);
+    }
+
+    public Point getStart() {
+        return start;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setStart(Point start) {
+        this.start = start;
+    }
+
+    public void setLength(int length) {
+        if (length <= 0){
+            throw new IllegalArgumentException("Length must be more than 0");
+        }
         this.length = length;
     }
 
