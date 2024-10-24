@@ -3,8 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Town {
-    private String title;
-    private List<Way> ways;
+    protected String title;
+    protected List<Way> ways;
 
     public Town(String title) {
         this(title, new ArrayList<>());
@@ -29,15 +29,22 @@ public class Town {
         if (newWay == null){
             return;
         }
+        int flag = 1;
         for (int i = 0; i < ways.size(); i++){
             if (ways.get(i).getToGo() == newWay.getToGo()){
-                throw new IllegalArgumentException("Two ways in one town");
+                ways.get(i).setCost(newWay.getCost());
+                flag = 0;
+                break;
+//                throw new IllegalArgumentException("Two ways in one town");
             }
         }
-        ways.add(newWay);
+        if (flag == 1){ways.add(newWay);}
     }
 
     public void remove(String name){
+        if (name == null){
+            return;
+        }
         for (int i = 0; i < ways.size(); i++){
             if (ways.get(i).getToGo().title == name){
                 ways.remove(i);

@@ -2,6 +2,10 @@ public class Way {
     private Town toGo;
     private int cost;
 
+    public Way(Town toGo, int cost) {
+        this.toGo = toGo;
+        setCost(cost);
+    }
     public Town getToGo() {
         return toGo;
     }
@@ -10,8 +14,12 @@ public class Way {
         return cost;
     }
 
-    public Way(Town toGo, int cost) {
-        this.toGo = toGo;
+    public void setCost(int cost) {
+        if (cost < 0){
+            throw new IllegalArgumentException("Cost can't be less than 0");
+        }
         this.cost = cost;
     }
+
+
 }
