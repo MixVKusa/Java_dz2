@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Broken {
-    private List<Point> line;
+    protected List<Point> line;
 
     public Broken() {
         this(new ArrayList<>(List.of()));
@@ -14,7 +14,11 @@ public class Broken {
     }
 
     public Broken(List<Point> line) {
-        this.line = line;
+        setLine(line);
+    }
+
+    public List<Point> getLine() {
+        return new ArrayList<>(line);
     }
 
     public void setLine(List<Point> line) {

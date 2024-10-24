@@ -1,6 +1,8 @@
+import javax.xml.transform.Source;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.SortedMap;
 
 public class Tests {
     public static void test1(){
@@ -65,28 +67,22 @@ public class Tests {
         Way af = new Way(townF, 1);
         Way ef = new Way(townF, 2);
 
-        townA.ways = new Way[]{ab, af, ad};
-        townB.ways = new Way[]{ba, bc};
-        townC.ways = new Way[]{cb, cd};
-        townD.ways = new Way[]{dc, da, de};
-        townE.ways = new Way[]{ef};
-        townF.ways = new Way[]{fe, fb};
+//        townA.ways = new Way[]{ab, af, ad};
+//        townB.ways = new Way[]{ba, bc};
+//        townC.ways = new Way[]{cb, cd};
+//        townD.ways = new Way[]{dc, da, de};
+//        townE.ways = new Way[]{ef};
+//        townF.ways = new Way[]{fe, fb};
 
         System.out.println(townA);
         System.out.println(townD);
     }
 
     public static void test4(){
-        Office depart = new Office("IT");
-        Employee person1 = new Employee("Петрова", depart);
-        Employee person2 = new Employee("Козлова", depart);
-        Employee person3 = new Employee("Сидорова", depart);
-        depart.boss = person2;
+        Fraction fr1 = new Fraction(0, 2);
+        Fraction fr2 = new Fraction(-8, 10);
 
-        System.out.println(person1);
-        System.out.println(person2);
-        System.out.println(person3);
-        System.out.println(depart);
+        System.out.println(fr2.sum(fr1));
     }
 
     public static void test5(){

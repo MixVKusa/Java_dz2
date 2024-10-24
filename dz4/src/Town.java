@@ -16,14 +16,9 @@ public class Town {
 
     public Town(String title, List<Way> ways) {
         this.title = title;
-        for (int i = 0; i < ways.size(); i++){
-            for (int j = 1; j < ways.size(); j++){
-                if (ways.get(i).getToGo() == ways.get(j).getToGo()){
-                    throw new IllegalArgumentException("Two ways in one town");
-                }
-            }
+        for (Way way : ways) {
+            add(way);
         }
-        this.ways = ways;
     }
 
     public String getTitle() {
@@ -31,6 +26,9 @@ public class Town {
     }
 
     public void add(Way newWay){
+        if (newWay == null){
+            return;
+        }
         for (int i = 0; i < ways.size(); i++){
             if (ways.get(i).getToGo() == newWay.getToGo()){
                 throw new IllegalArgumentException("Two ways in one town");
