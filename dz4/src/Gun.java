@@ -1,8 +1,11 @@
 public class Gun {
     private int bullets;
-    private int maxBullets;
+    private final int maxBullets;
 
     public Gun(int maxBullets) {
+        if (maxBullets < 0){
+            throw new IllegalArgumentException("Maximum ammo can't be less than 0");
+        }
         this.maxBullets = maxBullets;
     }
 
