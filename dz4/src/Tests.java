@@ -144,6 +144,9 @@ public class Tests {
         System.out.println(fr1.minus(fr2));
         System.out.println(fr2.mult(fr1));
         System.out.println(fr2.div(fr1));
+
+        System.out.println(fr1.floatValue());
+        System.out.println(fr2.intValue());
     }
 
     public static void test11(){
@@ -152,6 +155,27 @@ public class Tests {
         System.out.println(sq1);
         System.out.println(polyLine1);
         System.out.println(polyLine1.len());
+    }
 
+    public static void test12(){
+        Sparrow bird1 = new Sparrow();
+        Gowk bird2 = new Gowk();
+        Parrot bird3 = new Parrot("Кукареку");
+
+        bird1.sing();
+        bird2.sing();
+        bird3.sing();
+    }
+
+    public static void test13(){
+        Square sq = new Square(0, 0, 15);
+        Rectangle rec = new Rectangle(0, 0, 15, 10);
+        Circle cir = new Circle(0, 0, 5);
+        Triangle tr = new Triangle(0, 0, 15, 0, 15, 5);
+
+        System.out.println(sq.square());
+        System.out.println(rec.square());
+        System.out.println(cir.square());
+        System.out.println(tr.square());
     }
 }

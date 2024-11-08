@@ -2,35 +2,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Square {
-    private Point start;
-    private int length;
+public class Square extends Figure{
+    protected int length;
 
     public Square(Point start, int length) {
         this(start.x, start.y, length);
     }
 
     public Square(int x, int y, int length) {
-        this.start = new Point(x, y);
+        super(new Point(x, y));
         setLength(length);
-    }
-
-    public Point getStart() {
-        return start;
     }
 
     public int getLength() {
         return length;
     }
 
-    public void setStart(Point start) {
-        this.start = start;
-    }
-
     public void setLength(int length) {
-        if (length <= 0){
-            throw new IllegalArgumentException("Length must be more than 0");
-        }
+        if (length <= 0) throw new IllegalArgumentException("Arguments of geometric quantities must be greater than 0.");
         this.length = length;
     }
 
@@ -40,6 +29,11 @@ public class Square {
         Point p4 = new Point(start.x, start.y + length);
 
         return new Broken(start, p2, p3, p4);
+    }
+
+    @Override
+    public double square() {
+        return length * length;
     }
 
     public String toString() {

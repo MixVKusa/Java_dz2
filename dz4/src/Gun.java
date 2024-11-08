@@ -1,55 +1,52 @@
-public class Gun {
-    private int bullets;
+public class Gun extends Weapon{
     private final int maxBullets;
 
-    public Gun(int maxBullets) {
+    public Gun(int maxBullets, int bullets) {
+        super(bullets);
         if (maxBullets < 0){
             throw new IllegalArgumentException("Maximum ammo can't be less than 0");
         }
+        if (bullets > maxBullets) this.ammo = maxBullets;
         this.maxBullets = maxBullets;
     }
 
-    public Gun() {
-        this(5);
+    public Gun(int maxBullets) {
+        this(maxBullets, 5);
     }
 
     public int getMaxBullets() {
         return maxBullets;
     }
 
-    public int getBullets() {
-        return bullets;
-    }
-
     public int reload(int ammo){
         if (ammo < 0){
             throw new IllegalArgumentException("Ammo can't be less than 0");
         }
-        if (ammo + bullets > maxBullets){
-            bullets = maxBullets;
-            return maxBullets - ammo - bullets;
+        if (ammo + this.ammo > maxBullets){
+            this.ammo = maxBullets;
+            return maxBullets - ammo - this.ammo;
         }
         else {
-            bullets += ammo;
+            this.ammo += ammo;
             return 0;
         }
     }
 
     public int unload(){
         int curBullets;
-        curBullets = bullets;
-        bullets = 0;
+        curBullets = ammo;
+        ammo = 0;
         return curBullets;
     }
 
     public boolean isLoad(){
-        return bullets > 0;
+        return ammo > 0;
     }
 
     public void shot(){
-        if (bullets > 0){
+        if (ammo > 0){
             System.out.println("Бах!");
-            bullets--;
+            ammo--;
         }
         else{
             System.out.println("Клац!");
