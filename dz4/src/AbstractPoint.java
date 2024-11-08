@@ -13,7 +13,14 @@ public abstract class AbstractPoint {
     }
 
     protected String timeToString() {
-        return "в" + time;
+        String res;
+        if (time == null) {
+            res = "";
+        }
+        else {
+            res = "в" + time;
+        }
+        return res;
     }
 
     protected abstract String pointToString();
