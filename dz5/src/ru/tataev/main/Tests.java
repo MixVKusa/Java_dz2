@@ -249,6 +249,13 @@ public class Tests {
     public static void test20() {
         System.out.println(PolymorphDZ.doubleSum(7, new Fraction(11, 3), 3.21, new BigInteger("12345678912345678912", 10)));
     }
+
+    public static void test21(Meowable m){
+        m.meow();
+        m.meow();
+        m.meow();
+        m.meow();
+    }
 }
 
 class A{

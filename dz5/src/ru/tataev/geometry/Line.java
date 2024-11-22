@@ -61,10 +61,15 @@ public class Line implements Lengthable, PolyLine, Cloneable {
     }
 
     @Override
-    public Line clone() throws CloneNotSupportedException {
-        Line res = (Line) super.clone();
-        res.p1 = new Point(p1.x, p1.y);
-        res.p2 = new Point(p2.x, p2.y);
-        return res;
+    public Line clone() {
+        try {
+            Line res = (Line) super.clone();
+            res.p1 = this.p1.clone();
+            res.p2 = this.p2.clone();
+            return res;
+        }
+        catch (CloneNotSupportedException ex){
+            throw new RuntimeException();
+        }
     }
 }

@@ -2,7 +2,7 @@ package ru.tataev.calculating;
 
 import java.util.Objects;
 
-public class Fraction extends Number {
+public class Fraction extends Number implements Cloneable {
     private final int num;
     private final int den;
 
@@ -77,7 +77,13 @@ public class Fraction extends Number {
     }
 
     @Override
-    public Fraction clone() throws CloneNotSupportedException {
-        return (Fraction) super.clone();
+    public Fraction clone(){
+        try {
+            return (Fraction) super.clone();
+        }
+        catch (CloneNotSupportedException ex){
+            throw new RuntimeException();
+        }
+
     }
 }

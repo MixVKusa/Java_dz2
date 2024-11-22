@@ -1,8 +1,10 @@
 package ru.tataev.geometry;
 
+import ru.tataev.calculating.Fraction;
+
 import java.util.Objects;
 
-public class Point {
+public class Point implements Cloneable{
     protected int x;
     protected int y;
 
@@ -46,7 +48,12 @@ public class Point {
     }
 
     @Override
-    public Point clone() throws CloneNotSupportedException {
-        return (Point) super.clone();
+    public Point clone() {
+        try {
+            return (Point) super.clone();
+        }
+        catch (CloneNotSupportedException ex){
+            throw new RuntimeException();
+        }
     }
 }
