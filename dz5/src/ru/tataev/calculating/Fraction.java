@@ -75,4 +75,9 @@ public class Fraction extends Number {
     public int hashCode() {
         return Objects.hash(num, den);
     }
+
+    @Override
+    public Fraction clone() throws CloneNotSupportedException {
+        return (Fraction) super.clone();
+    }
 }

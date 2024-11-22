@@ -1,8 +1,9 @@
 package ru.tataev.geometry;
 
+import java.util.List;
 import java.util.Objects;
 
-public class Line implements Lengthable, PolyLine {
+public class Line implements Lengthable, PolyLine, Cloneable {
     private Point p1;
     private Point p2;
 
@@ -42,19 +43,28 @@ public class Line implements Lengthable, PolyLine {
     }
 
     public String toString(){
-        return "ru.tataev.geometry.Line from " + p1 + " to " + p2;
+        return "Line from " + p1 + " to " + p2;
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
         if (getClass() != obj.getClass()) return false;
-        if (!p1.equals(((Line) obj).p1) || !p2.equals(((Line) obj).p2)) return false;
+        if (!(p1.equals(((Line) obj).p1) && p2.equals(((Line) obj).p2)) &&
+                !(p1.equals(((Line) obj).p2) && p2.equals(((Line) obj).p1))) return false;
         return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(p1, p2);
+        return p1.hashCode() + p2.hashCode();
+    }
+
+    @Override
+    public Line clone() throws CloneNotSupportedException {
+        Line res = (Line) super.clone();
+        res.p1 = new Point(p1.x, p1.y);
+        res.p2 = new Point(p2.x, p2.y);
+        return res;
     }
 }

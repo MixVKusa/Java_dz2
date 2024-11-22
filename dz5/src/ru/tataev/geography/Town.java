@@ -1,9 +1,6 @@
 package ru.tataev.geography;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Town {
     protected String title;
@@ -71,12 +68,18 @@ public class Town {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
+        if (obj == null) return false;
         if (!(obj instanceof Town town)) return false;
-        return ways.equals(town.ways);
+        if (ways.size() != town.ways.size()) return false;
+        return ways.containsAll(town.ways);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(ways);
+        int hash = 0;
+        for (Way way : ways) {
+            hash += way.hashCode();
+        }
+        return hash;
     }
 }

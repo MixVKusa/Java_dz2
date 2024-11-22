@@ -22,6 +22,4 @@ public class Way {
         }
         this.cost = cost;
     }
-
-
 }

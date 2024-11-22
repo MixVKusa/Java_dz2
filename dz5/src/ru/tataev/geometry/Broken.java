@@ -65,14 +65,29 @@ public class Broken implements Lengthable {
         if (getClass() != obj.getClass()) return false;
         List<Point> other = ((Broken) obj).getLine();
         if (line.size() != other.size()) return false;
+        int flag = 0;
         for (int i = 0; i < line.size(); i++){
-            if (!line.get(i).equals(other.get(i))) return false;
+            if (!line.get(i).equals(other.get(i))) {
+                flag += 1;
+                break;
+            }
         }
-        return true;
+        List<Point> otherRev = other.reversed();
+        for (int i = 0; i < line.size(); i++){
+            if (!line.get(i).equals(otherRev.get(i))) {
+                flag += 1;
+                break;
+            }
+        }
+        return flag <= 2;
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(line.toArray());
+        int hash = 0;
+        for (Point point : line) {
+            hash += point.hashCode();
+        }
+        return hash;
     }
 }
