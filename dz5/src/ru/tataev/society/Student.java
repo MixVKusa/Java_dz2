@@ -1,10 +1,12 @@
 package ru.tataev.society;
 
+import ru.tataev.calculating.Comparable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String name;
     private List<Integer> marks;
 
@@ -71,5 +73,18 @@ public class Student {
         arrStr += "]";
         String res = String.format("%s:%s", name, arrStr);
         return res;
+    }
+
+    @Override
+    public int compare(Student obj) {
+        if (this.average() > obj.average()){
+            return 1;
+        }
+        else if (this.average() == obj.average()){
+            return 0;
+        }
+        else {
+            return -1;
+        }
     }
 }

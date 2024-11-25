@@ -3,7 +3,7 @@ package ru.tataev.geometry;
 import java.util.List;
 import java.util.Objects;
 
-public class Line implements Lengthable, PolyLine, Cloneable {
+public class Line<P extends Point> implements Lengthable, PolyLine, Cloneable {
     private Point p1;
     private Point p2;
 
@@ -16,20 +16,20 @@ public class Line implements Lengthable, PolyLine, Cloneable {
         this.p2 = new Point(x2, y2);
     }
 
-    public Point getP1() {
-        return p1;
+    public P getP1() {
+        return (P) p1;
     }
 
-    public Point getP2() {
-        return p2;
+    public P getP2() {
+        return (P) p2;
     }
 
-    public void setP1(Point p1) {
-        this.p1 = p1;
+    public void setP1(P p1) {
+        this.p1 = new Point(p1.x, p1.y);
     }
 
-    public void setP2(Point p2) {
-        this.p2 = p2;
+    public void setP2(P p2) {
+        this.p2 = new Point(p2.x, p2.y);
     }
 
     @Override

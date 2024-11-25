@@ -1,6 +1,7 @@
 package ru.tataev.main;
 
 import ru.tataev.animals.Cat;
+import ru.tataev.animals.Meowable;
 import ru.tataev.geometry.Point;
 
 import java.util.ArrayList;
@@ -22,18 +23,22 @@ public class Main {
 //        for (Integer i: list){
 //            System.out.println(i);
 //        }
-
-        Cat cat = new Cat("Mursik");
+        Meowable cat = new Cat("Mursik");
+        MeowCount cat2 = new MeowCount(cat);
+        MeowAlert cat3 = new MeowAlert(cat2);
 
         Tests.test21(cat);
+        System.out.println(cat3.);
+//        Tests.test23();
     }
 }
 
-class Cat2 extends Cat{
+class MeowCount implements Meowable {
+    private Meowable entity;
     private int meows;
 
-    public Cat2(String name) {
-        super(name);
+    public MeowCount(Meowable entity) {
+        this.entity = entity;
     }
 
     public int getMeows() {
@@ -42,7 +47,21 @@ class Cat2 extends Cat{
 
     @Override
     public void meow() {
-        super.meow();
+        entity.meow();
         meows++;
+    }
+}
+
+class MeowAlert implements Meowable {
+    private Meowable entity;
+
+    public MeowAlert(Meowable entity) {
+        this.entity = entity;
+    }
+
+    @Override
+    public void meow() {
+        System.out.println("ALERT!!!");
+        entity.meow();
     }
 }

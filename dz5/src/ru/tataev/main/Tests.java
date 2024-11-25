@@ -3,6 +3,8 @@ package ru.tataev.main;
 import ru.tataev.animals.*;
 import ru.tataev.calculating.Fraction;
 import ru.tataev.calculating.House;
+import ru.tataev.capacity.Box;
+import ru.tataev.capacity.Storage;
 import ru.tataev.geography.DoubleTown;
 import ru.tataev.geography.Town;
 import ru.tataev.geography.Way;
@@ -255,6 +257,27 @@ public class Tests {
         m.meow();
         m.meow();
         m.meow();
+    }
+
+    public static void test22(){
+        Box<Integer> b = new Box<>();
+        b.setObj(22);
+
+        System.out.println(b.getObj());
+    }
+
+    public static void test23() {
+        Storage<Integer> s1= new Storage<>(null, 0);
+        System.out.println(s1.getItem());
+
+        Storage<Integer> s2 = new Storage<>(99, -1);
+        System.out.println(s2.getItem());
+
+        Storage<String> s3 = new Storage<>(null, "default");
+        System.out.println(s3.getItem());
+
+        Storage<String> s4 = new Storage<>("hello", "hello world");
+        System.out.println(s4.getItem());
     }
 }
 
