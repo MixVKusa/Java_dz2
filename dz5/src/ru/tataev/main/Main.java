@@ -23,13 +23,13 @@ public class Main {
 //        for (Integer i: list){
 //            System.out.println(i);
 //        }
-        Meowable cat = new Cat("Mursik");
-        MeowCount cat2 = new MeowCount(cat);
-        MeowAlert cat3 = new MeowAlert(cat2);
-
-        Tests.test21(cat);
-        System.out.println(cat3.);
-//        Tests.test23();
+//        Meowable cat = new Cat("Mursik");
+//        MeowCount cat2 = new MeowCount(cat);
+//        MeowAlert cat3 = new MeowAlert(cat2);
+//
+//        Tests.test21(cat);
+//        System.out.println(cat3);
+        Tests.test24();
     }
 }
 

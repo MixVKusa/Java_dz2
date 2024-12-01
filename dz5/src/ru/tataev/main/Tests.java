@@ -17,6 +17,7 @@ import ru.tataev.society.Student;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Tests {
     public static void test1(){
@@ -103,7 +104,7 @@ public class Tests {
         Point p1 = new Point(1, 3);
         Point p2 = new Point(23, 8);
         Line l1 = new Line(p1, p2);
-        Line l2 = new Line(5, 10, 25, 10);
+        Line l2 = Line.of(5, 10, 25, 10);
         Line l3 = new Line(l1.getP1(), l2.getP2());
 
         System.out.println(l1);
@@ -267,17 +268,26 @@ public class Tests {
     }
 
     public static void test23() {
-        Storage<Integer> s1= new Storage<>(null, 0);
-        System.out.println(s1.getItem());
+        Storage<Integer> s1= new Storage<>(null);
+        System.out.println(s1.getItem(0));
 
-        Storage<Integer> s2 = new Storage<>(99, -1);
-        System.out.println(s2.getItem());
+        Storage<Integer> s2 = new Storage<>(99);
+        System.out.println(s2.getItem(-1));
 
-        Storage<String> s3 = new Storage<>(null, "default");
-        System.out.println(s3.getItem());
+        Storage<String> s3 = new Storage<>(null);
+        System.out.println(s3.getItem("default"));
 
-        Storage<String> s4 = new Storage<>("hello", "hello world");
-        System.out.println(s4.getItem());
+        Storage<String> s4 = new Storage<>("hello");
+        System.out.println(s4.getItem("hello world"));
+    }
+
+    public static void test24() {
+        Line<? extends Point> l1 = Line.of(5, 10, 15, 20);
+        Line<? extends Point> l2 = Line.of(-7, 10, 15, 20, 30,40);
+        ParametrizDZ.moveStartPointX(l1);
+        ParametrizDZ.moveStartPointX(l2);
+        System.out.println(l1.getP1());
+        System.out.println(l2.getP1());
     }
 }
 
