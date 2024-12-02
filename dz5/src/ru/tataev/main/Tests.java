@@ -268,17 +268,11 @@ public class Tests {
     }
 
     public static void test23() {
-        Storage<Integer> s1= new Storage<>(null);
-        System.out.println(s1.getItem(0));
+        List<Point> l1 = List.of(new Point(5, 10), new Point(2, 8), new Point(-8, 0));
+        List<Point> l2 = GenericMetodsDZ.<Point, Point>map(l1, p -> new Point(p.getX() + 5, p.getY()));
+        List<Point> l3 = GenericMetodsDZ.filter(l1, point -> point.getX() > 0);
 
-        Storage<Integer> s2 = new Storage<>(99);
-        System.out.println(s2.getItem(-1));
-
-        Storage<String> s3 = new Storage<>(null);
-        System.out.println(s3.getItem("default"));
-
-        Storage<String> s4 = new Storage<>("hello");
-        System.out.println(s4.getItem("hello world"));
+        Broken = GenericMetodsDZ.collect(l1, (o, point) -> );
     }
 
     public static void test24() {
