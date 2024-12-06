@@ -4,7 +4,7 @@ import ru.tataev.animals.*;
 import ru.tataev.calculating.Fraction;
 import ru.tataev.calculating.House;
 import ru.tataev.capacity.Box;
-import ru.tataev.capacity.Storage;
+import ru.tataev.data.DataStream;
 import ru.tataev.geography.DoubleTown;
 import ru.tataev.geography.Town;
 import ru.tataev.geography.Way;
@@ -269,10 +269,9 @@ public class Tests {
 
     public static void test23() {
         List<Point> l1 = List.of(new Point(5, 10), new Point(2, 8), new Point(-8, 0));
-        List<Point> l2 = GenericMetodsDZ.<Point, Point>map(l1, p -> new Point(p.getX() + 5, p.getY()));
-        List<Point> l3 = GenericMetodsDZ.filter(l1, point -> point.getX() > 0);
-
-        Broken = GenericMetodsDZ.collect(l1, (o, point) -> );
+        List<Point> l2 = DataStream.map(l1, p -> new Point(p.getX() + 5, p.getY()));
+        List<Point> l3 = DataStream.filter(l1, point -> point.getX() > 0);
+        Broken br1 = DataStream.collect(l1, Broken::add, Broken::new);
     }
 
     public static void test24() {

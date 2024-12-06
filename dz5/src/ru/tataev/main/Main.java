@@ -1,35 +1,19 @@
 package ru.tataev.main;
 
-import ru.tataev.animals.Cat;
 import ru.tataev.animals.Meowable;
+import ru.tataev.data.DataStream;
+import ru.tataev.data.DataStream.*;
 import ru.tataev.geometry.Point;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import static ru.tataev.main.PolymorphDZ.power;
 
 public class Main {
     public static void main(String[] args) {
-//        Tests.test20();
-//        System.out.println(power(args[0], args[1]));
-//        Point created = new Point(0, 0);
-//        java.awt.Point program = new java.awt.Point(0, 0);
-//        List<Integer> list = new ArrayList<>();
-//        list.add(28);
-//        list.add(35);
-//
-//        for (Integer i: list){
-//            System.out.println(i);
-//        }
-//        Meowable cat = new Cat("Mursik");
-//        MeowCount cat2 = new MeowCount(cat);
-//        MeowAlert cat3 = new MeowAlert(cat2);
-//
-//        Tests.test21(cat);
-//        System.out.println(cat3);
-        Tests.test24();
+        Point p1 = new Point(1, 2);
+        Point p2 = new Point(-5, 3);
+        Point p3 = new Point(7, 4);
+        List<Point> l1 = DataStream.of(p1, p2, p3).map;
+        System.out.println(l1);
     }
 }
 
