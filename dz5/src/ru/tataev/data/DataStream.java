@@ -2,48 +2,50 @@ package ru.tataev.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.*;
 
-public class DataStream {
-    public static <T> List<T> of (T...data){
-        return List.of(data);
-    }
-    public static <T, P> List<P> map(List<T> list, Function<T, P> fun) {
-        List<P> resList = new ArrayList<>();
+public class DataStream<T> {
+    private final List<T> dataList;
+    private final List<Object> lambdaList = new ArrayList<>();
 
-        for (T i: list){
-            resList.add(fun.apply(i));
-        }
-
-        return resList;
+    public DataStream(List<T> dataList) {
+        this.dataList = dataList;
     }
 
-    public static <T> List<T> filter(List<T> list, Predicate<T> fun) {
-        List<T> resList = new ArrayList<>();
-
-        for (T i: list){
-            if (fun.test(i)){
-                resList.add(i);
-            }
-        }
-
-        return resList;
+    public static <V> DataStream<V> of (V...lst){
+        return new DataStream<V>(List.of(lst));
     }
 
-    public static <T> T reduce(List<T> list, T init, BinaryOperator<T> fun) {
+    @SuppressWarnings("unchecked")
+    public <P> DataStream<P> map(Function<T, P> fun) {
+        lambdaList.add(fun);
+        return (DataStream<P>)this;
+    }
+
+    public DataStream<T> filter(Predicate<T> fun) {
+        lambdaList.add(fun);
+        return this;
+    }
+
+    public T reduce(T init, BinaryOperator<T> fun) throws ClassCastException{
         T res = init;
 
-        for (T i: list){
+        for (T i: dataList){
+            for (Object j: lambdaList){
+
+
+            }
                 res = fun.apply(res, i);
         }
 
         return res;
     }
 
-    public static <T, P> P collect(List<T> list, BiConsumer<P, T> fun, Supplier<P> sup) {
+    public <P> P collect(BiConsumer<P, T> fun, Supplier<P> sup) {
         P resCollection = sup.get();
 
-        for (T i: list){
+        for (T i: dataList){
             fun.accept(resCollection, i);
         }
 
