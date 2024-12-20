@@ -93,12 +93,12 @@ public class Tests {
         System.out.println(townD);
     }
 
-    public static void test4(){
-        Fraction fr1 = new Fraction(0, 2);
-        Fraction fr2 = new Fraction(-8, 10);
-
-        System.out.println(fr2.sum(fr1));
-    }
+//    public static void test4(){
+//        Fraction fr1 = new Fraction(0, 2);
+//        Fraction fr2 = new Fraction(-8, 10);
+//
+//        System.out.println(fr2.sum(fr1));
+//    }
 
     public static void test5(){
         Point p1 = new Point(1, 3);
@@ -151,18 +151,18 @@ public class Tests {
         cat.meow(3);
     }
 
-    public static void test10(){
-        Fraction fr1 = new Fraction(1, 3);
-        Fraction fr2 = new Fraction(2, 5);
-
-        System.out.println(fr2.sum(fr1));
-        System.out.println(fr1.minus(fr2));
-        System.out.println(fr2.mult(fr1));
-        System.out.println(fr2.div(fr1));
-
-        System.out.println(fr1.floatValue());
-        System.out.println(fr2.intValue());
-    }
+//    public static void test10(){
+//        Fraction fr1 = new Fraction(1, 3);
+//        Fraction fr2 = new Fraction(2, 5);
+//
+//        System.out.println(fr2.sum(fr1));
+//        System.out.println(fr1.minus(fr2));
+//        System.out.println(fr2.mult(fr1));
+//        System.out.println(fr2.div(fr1));
+//
+//        System.out.println(fr1.floatValue());
+//        System.out.println(fr2.intValue());
+//    }
 
     public static void test11(){
         Square sq1 = new Square(5, 3, 23);
@@ -199,11 +199,11 @@ public class Tests {
         System.out.println(b.n);
     }
 
-    public static void test15(){
-        System.out.println(PolymorphDZ.doubleSum(2, new Fraction(3, 5), 2.3));
-        System.out.println(PolymorphDZ.doubleSum(3.6, new Fraction(49, 12), 3, new Fraction(3, 2)));
-        System.out.println(PolymorphDZ.doubleSum(new Fraction(1, 3), 1));
-    }
+//    public static void test15(){
+//        System.out.println(PolymorphDZ.doubleSum(2, new Fraction(3, 5), 2.3));
+//        System.out.println(PolymorphDZ.doubleSum(3.6, new Fraction(49, 12), 3, new Fraction(3, 2)));
+//        System.out.println(PolymorphDZ.doubleSum(new Fraction(1, 3), 1));
+//    }
 
     public static void test16(){
         Sparrow s1 = new Sparrow();
@@ -249,9 +249,9 @@ public class Tests {
         System.out.println(townC);
     }
 
-    public static void test20() {
-        System.out.println(PolymorphDZ.doubleSum(7, new Fraction(11, 3), 3.21, new BigInteger("12345678912345678912", 10)));
-    }
+//    public static void test20() {
+//        System.out.println(PolymorphDZ.doubleSum(7, new Fraction(11, 3), 3.21, new BigInteger("12345678912345678912", 10)));
+//    }
 
     public static void test21(Meowable m){
         m.meow();
@@ -267,12 +267,12 @@ public class Tests {
         System.out.println(b.getObj());
     }
 
-    public static void test23() {
-        List<Point> l1 = List.of(new Point(5, 10), new Point(2, 8), new Point(-8, 0));
-        List<Point> l2 = DataStream.map(l1, p -> new Point(p.getX() + 5, p.getY()));
-        List<Point> l3 = DataStream.filter(l1, point -> point.getX() > 0);
-        Broken br1 = DataStream.collect(l1, Broken::add, Broken::new);
-    }
+//    public static void test23() {
+//        List<Point> l1 = List.of(new Point(5, 10), new Point(2, 8), new Point(-8, 0));
+//        List<Point> l2 = DataStream.map(l1, p -> new Point(p.getX() + 5, p.getY()));
+//        List<Point> l3 = DataStream.filter(l1, point -> point.getX() > 0);
+//        Broken br1 = DataStream.collect(l1, Broken::add, Broken::new);
+//    }
 
     public static void test24() {
         Line<? extends Point> l1 = Line.of(5, 10, 15, 20);

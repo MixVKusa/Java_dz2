@@ -6,7 +6,7 @@ public class Fraction extends Number implements Cloneable {
     private final int num;
     private final int den;
 
-    public Fraction(int num, int den) {
+    protected Fraction(int num, int den) {
         if (den == 0) {
             throw new IllegalArgumentException("Denomerator can't be 0");
         }
